@@ -206,6 +206,17 @@ textarea {
   border: 1px solid var(--border);
 }
 
+/* Make link-button anchors look and feel like buttons */
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  gap: 8px;
+  min-width: 110px;
+}
+
 .error-banner {
   padding: 12px 14px;
   border-radius: 14px;

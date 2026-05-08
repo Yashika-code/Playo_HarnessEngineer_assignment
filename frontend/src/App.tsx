@@ -144,16 +144,13 @@ function DocumentDetailView() {
     return subscribeToProgress(documentId, (event) => {
       setEvents((current) => [event, ...current].slice(0, 8))
       setDocument((current) => current ? { ...current, status: event.status, progress_percent: event.progress_percent, progress_step: event.progress_step } : current)
-      // If extraction or final result stored, refetch full document and update draft
-      if (event.event === 'field_extraction_completed' || event.event === 'final_result_stored' || event.progress_step === 'final_result_stored') {
-        getDocument(documentId).then((result) => {
-          setDocument(result)
-          setDraft(JSON.stringify(result.reviewed_data ?? result.extracted_data ?? {}, null, 2))
-          setToast('Draft refreshed')
-          setTimeout(() => setToast(''), 3000)
-        }).catch(() => {
-          // ignore fetch errors during live updates
-        })
+      // If extraction or final result stored, use payload from SSE directly (avoids race condition with DB commit)
+      if ((event.event === 'field_extraction_completed' || event.event === 'final_result_stored') && event.payload) {
+        setDraft(JSON.stringify(event.payload, null, 2))
+        setToast('Data extracted and ready')
+        setTimeout(() => setToast(''), 3000)
+        // Update document state with extracted payload
+        setDocument((current) => current ? { ...current, extracted_data: event.payload, reviewed_data: event.payload } : current)
       }
     })
   }, [documentId])
