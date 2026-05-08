@@ -128,6 +128,7 @@ function DocumentDetailView() {
   const { documentId } = useParams()
   const [document, setDocument] = useState<DocumentDetail | null>(null)
   const [draft, setDraft] = useState('')
+  const [toast, setToast] = useState('')
   const [events, setEvents] = useState<ProgressEvent[]>([])
 
   useEffect(() => {
@@ -148,6 +149,8 @@ function DocumentDetailView() {
         getDocument(documentId).then((result) => {
           setDocument(result)
           setDraft(JSON.stringify(result.reviewed_data ?? result.extracted_data ?? {}, null, 2))
+          setToast('Draft refreshed')
+          setTimeout(() => setToast(''), 3000)
         }).catch(() => {
           // ignore fetch errors during live updates
         })
@@ -179,6 +182,11 @@ function DocumentDetailView() {
 
   return (
     <section className="detail-grid">
+      {toast ? (
+        <div style={{position: 'fixed', right: 20, top: 80, background: '#111', color: '#fff', padding: '8px 12px', borderRadius: 6, zIndex: 1000, boxShadow: '0 4px 12px rgba(0,0,0,0.2)'}}>
+          {toast}
+        </div>
+      ) : null}
       <div className="panel">
         <div className="detail-header">
           <div>
