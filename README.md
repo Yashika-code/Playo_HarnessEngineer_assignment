@@ -93,19 +93,6 @@ API will be at http://localhost:8000, frontend at http://localhost:5173.
 - No file virus scanning or OCR.
 - Large-file chunking is not implemented.
 
-## Demo Video
-
-A 3-5 minute walkthrough is required for submission. See [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md) for a detailed script covering:
-- Upload and live progress tracking
-- Dashboard search, filter, and sorting
-- Document review and finalization
-- Export (JSON and CSV)
-- Retry functionality
-
 Add the demo video link here after recording:
 
-**[Demo Video Link]** *(to be added)*
-
-## AI Tools Used
-
-This project was built with GitHub Copilot assistance for code scaffolding, architecture design, and implementation. All code has been reviewed and validated to meet the production-quality and design criteria outlined in the assignment.
+**[[Demo Video Link]](https://drive.google.com/file/d/1BES7o-sbqveXpRQRxbnjqUkCEoj586g8/view?usp=sharing)**
