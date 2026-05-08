@@ -202,6 +202,12 @@ function DocumentDetailView() {
             </div>
           ))}
         </div>
+        <details style={{marginTop:16}}>
+          <summary>Raw API JSON</summary>
+          <pre style={{whiteSpace: 'pre-wrap', maxHeight: 360, overflow: 'auto', background: '#fff', padding: 12, borderRadius: 8, marginTop: 8}}>
+            {document ? JSON.stringify(document, null, 2) : 'loading...'}
+          </pre>
+        </details>
       </aside>
     </section>
   )
