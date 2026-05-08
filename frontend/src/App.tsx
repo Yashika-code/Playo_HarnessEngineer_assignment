@@ -143,6 +143,15 @@ function DocumentDetailView() {
     return subscribeToProgress(documentId, (event) => {
       setEvents((current) => [event, ...current].slice(0, 8))
       setDocument((current) => current ? { ...current, status: event.status, progress_percent: event.progress_percent, progress_step: event.progress_step } : current)
+      // If extraction or final result stored, refetch full document and update draft
+      if (event.event === 'field_extraction_completed' || event.event === 'final_result_stored' || event.progress_step === 'final_result_stored') {
+        getDocument(documentId).then((result) => {
+          setDocument(result)
+          setDraft(JSON.stringify(result.reviewed_data ?? result.extracted_data ?? {}, null, 2))
+        }).catch(() => {
+          // ignore fetch errors during live updates
+        })
+      }
     })
   }, [documentId])
 
