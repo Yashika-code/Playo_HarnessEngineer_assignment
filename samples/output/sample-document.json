@@ -1,0 +1,18 @@
+{
+  "title": "Sample Document",
+  "category": "document",
+  "summary": "Quarterly planning notes ...",
+  "keywords": [
+    "planning",
+    "roadmap",
+    "launch",
+    "onboarding",
+    "support"
+  ],
+  "status": "processed",
+  "metadata": {
+    "filename": "sample-document.txt",
+    "file_type": "text/plain",
+    "file_size": 0
+  }
+}

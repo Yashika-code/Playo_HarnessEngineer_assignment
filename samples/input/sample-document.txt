@@ -1,0 +1,9 @@
+Quarterly planning notes
+
+This sample document includes the roadmap for product launch, marketing coordination, customer onboarding, and support readiness.
+
+Key points:
+- title should be extracted from the filename or heading
+- category should map to a document type
+- summary should capture the main planning items
+- keywords should include planning, roadmap, launch, onboarding, support

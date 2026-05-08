@@ -1,0 +1,237 @@
+:root {
+  color-scheme: light;
+  --bg: #f4efe8;
+  --panel: #fffaf3;
+  --panel-2: #f7f1e7;
+  --text: #1f1a17;
+  --muted: #6d625b;
+  --accent: #c65c2f;
+  --accent-dark: #9c3f18;
+  --border: rgba(31, 26, 23, 0.12);
+  --shadow: 0 20px 60px rgba(82, 54, 31, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Avenir Next", Avenir, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(198, 92, 47, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(31, 26, 23, 0.08), transparent 22%),
+    var(--bg);
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 14px;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+}
+
+.shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 14px;
+}
+
+.brand, .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--accent-dark);
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.panel {
+  background: rgba(255, 250, 243, 0.82);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
+}
+
+.hero-panel h1 {
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 0.98;
+  margin: 10px 0;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  border-radius: 22px;
+  border: 1.5px dashed rgba(198, 92, 47, 0.35);
+  background: var(--panel-2);
+  cursor: pointer;
+}
+
+.dropzone input {
+  display: none;
+}
+
+.toolbar, .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.toolbar input, .toolbar select, textarea {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  background: white;
+}
+
+.document-list {
+  margin-top: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.document-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: white;
+}
+
+.document-card h3, .detail-header h2 {
+  margin: 0;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(31, 26, 23, 0.08);
+  overflow: hidden;
+}
+
+.progress-track.large { height: 14px; }
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #f28b4b);
+  border-radius: inherit;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.status-queued { background: #f1eadf; }
+.status-processing { background: #fff0d8; }
+.status-completed { background: #dff1e6; }
+.status-finalized { background: #d7e8ff; }
+.status-failed { background: #ffd9d9; }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.7fr);
+  gap: 18px;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+textarea {
+  width: 100%;
+  margin: 16px 0;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.secondary, .link-button {
+  background: white;
+  border: 1px solid var(--border);
+}
+
+.error-banner {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #ffd9d9;
+}
+
+.event-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.event-item {
+  padding: 14px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 4px;
+}
+
+@media (max-width: 960px) {
+  .detail-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .topbar, .detail-header { flex-direction: column; }
+  .shell { padding: 16px; }
+}
