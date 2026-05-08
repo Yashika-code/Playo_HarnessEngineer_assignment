@@ -1,0 +1,16 @@
+Meeting Notes - 2026-05-01
+
+Attendees: Alice, Bob, Carol, Dan
+
+Discussion:
+
+The product roadmap for the next quarter includes feature A, B, and C. Feature A will require backend changes and an API migration. Feature B focuses on the UX and will require user testing. Feature C is an optimization task for performance.
+
+Decisions:
+
+- Prioritize Feature A and B for the next sprint.
+- Allocate 20% time to bug fixes and 10% to documentation.
+
+Summary:
+
+Ensure cross-team alignment and set weekly syncs.
